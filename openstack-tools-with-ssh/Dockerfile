@@ -1,14 +1,14 @@
-# Docker container with OpenStack client
+# Docker container with OpenStack client + SSH server for remote access
 
-FROM ubuntu:latest
+FROM openstack-tools:latest
 MAINTAINER lrivallain@sii.fr
 
 RUN apt-get update && \
-    apt-get install -y python-openstackclient vim openssh-server && \
-    rm -rf /var/lib/apt/lists/*
+apt-get install -y --no-install-recommends openssh-server && \
+rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/run/sshd
-RUN echo 'root:handson@' | chpasswd
+RUN echo 'root:ostools@' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login

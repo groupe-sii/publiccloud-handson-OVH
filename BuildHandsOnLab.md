@@ -11,10 +11,10 @@ Containers are named according to the `containername` prefix.
 # Docker containers
 
     nbcontainers=12
-    containername="handson_tests"
+    containername="handson"
 
     for i in `seq -w 1 $nbcontainers` ; do
-        docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:500$i:22 --name $containername-$i openstackclient
+        docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:500$i:22 --name $containername-$i sii/openstack-tools-with-ssh
     done
 
 # Clean docker containers

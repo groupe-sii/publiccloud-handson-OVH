@@ -10,42 +10,61 @@ This container is based on Ubuntu image with both OpenStack client tools and SSH
 
 ## Build
 
+## Without SSH server
+
 If not already available in your `docker images`, build the image:
 
-    $ docker build -t openstackclient .
+```
+$ docker build -t sii/openstack-tools .
+```
 
-## Run it
+## With SSH server
 
-On a docker's choice port:
+Build the `openstack-tools` as described in previous section, then :
 
-    $ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -P --name handson_test openstackclient
-    $ docker port handson_test 22
-    0.0.0.0:49154
+```
+$ docker build -t sii/openstack-tools-with-ssh .
+```
+
+# Run
+
+## Without SSH server
+
+```
+$ docker run -ti --rm -v $(pwd)/openrc.sh:/root/openrc.sh sii/openstack-tools
+```
+
+## With SSH server
+
+With a random port:
+
+```
+$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -P --name ostools sii/openstack-tools-with-ssh
+$ docker port ostools 22
+0.0.0.0:49154
+```
 
 On a specific port:
 
-    $ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:49154:22 --name handson_test openstackclient
-
-# Container's usage
-
-## Connect to the container
+```
+$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:49154:22 --name ostools sii/openstackclient-with-ssh
+```
 
 Connect on the published SSH port with root and `handson@` password :
 
-    $ ssh root@127.0.0.1 -p 49154
-    password: handson@
+```
+$ ssh root@DOCKERHOST_IP -p 49154
+password: ostools@
+```
 
-## Openstack tools
+# Openstack tools tests
 
 You can test the `openstack` command:
 
-    $ . openrc.sh
-    Please enter your OpenStack Password:
-    $ openstack image list
+```
+$ . ~/openrc.sh
+Please enter your OpenStack Password:
+$ openstack image list
+```
 
 ... should return a list of available templates to deploy as VM.
-
-# Clean test
-
-    $ docker stop handson_test
-    $ docker rm handson_test
