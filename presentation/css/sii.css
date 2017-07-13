@@ -30,8 +30,6 @@ body {
 
 .reveal ol {
   width: 100%;
-  list-style-type: disc;
-/*  list-style: none; */
 }
 
 .medium-table th, .medium-table td {
@@ -49,3 +47,7 @@ body {
 .small-table code {
     font-size: 1.2rem;
 }
+
+.reveal li li { color: #005AA2 }
+.reveal li li li { color: #D64B13 }
+.reveal li li li li { color: #B2BE3A }
