@@ -1,0 +1,51 @@
+body {
+  background-image: url('../images/header-sii.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.reveal em {
+  color: #559BDB;
+}
+
+.reveal td code {
+  padding: 0 0.5rem;
+  background-color: #dcdcdc;
+  color: #3F3F3F;
+}
+
+.reveal ul code,
+.reveal p code {
+  padding: 0.2rem 1rem;
+  background-color: #dcdcdc;
+  color: #3F3F3F;
+  font-size: 2rem;
+}
+
+.reveal pre {
+  width: 100%;
+  font-size: 1rem;
+}
+
+
+.reveal ol {
+  width: 100%;
+  list-style-type: disc;
+/*  list-style: none; */
+}
+
+.medium-table th, .medium-table td {
+  font-size: 2rem;
+}
+
+.medium-table code {
+    font-size: 1.6rem;
+}
+
+.small-table th, .small-table td {
+    font-size: 1.4rem;
+}
+
+.small-table code {
+    font-size: 1.2rem;
+}

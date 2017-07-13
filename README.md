@@ -15,7 +15,7 @@ This container is based on Ubuntu image with both OpenStack client tools and SSH
 If not already available in your `docker images`, build the image:
 
 ```
-$ docker build -t sii/openstack-tools .
+$ docker build -t sii/openstack-tools openstack-tools/
 ```
 
 ## With SSH server
@@ -23,7 +23,7 @@ $ docker build -t sii/openstack-tools .
 Build the `openstack-tools` as described in previous section, then :
 
 ```
-$ docker build -t sii/openstack-tools-with-ssh .
+$ docker build -t sii/openstack-tools-with-ssh openstack-tools-with-ssh/
 ```
 
 # Run

@@ -1,6 +1,6 @@
 # Docker container with OpenStack client + SSH server for remote access
 
-FROM openstack-tools:latest
+FROM sii/openstack-tools:latest
 MAINTAINER lrivallain@sii.fr
 
 RUN apt-get update && \
