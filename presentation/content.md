@@ -221,14 +221,24 @@ openstack server create \
 ```
 
 
-### Connect to your instance
+### Server informations
 
-* List instances:
+Get more details about your instance(s):
 ```bash
 openstack server list
+openstack server show <<<YOUR_NAME>>>-2
+openstack console log show <<<YOUR_NAME>>>-2
+openstack console url show <<<YOUR_NAME>>>-2
 ```
 
-* From **jump server**: ```ssh ubuntu@<instance's IPv4>```
+
+### Connect to your instance
+
+* Check instance state and get its IP:
+```bash
+openstack server show <<<YOUR_NAME>>>-2
+```
+* When ready : ```ssh ubuntu@<instance's IPv4>```
 ```bash
 ubuntu@YOUR_NAME $ echo HELLO WORLD !
 ```
