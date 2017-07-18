@@ -6,15 +6,26 @@ part 1 : OVH
 ## Public Cloud ?
 
 * *"Service over network, open for public use"*
-* Mutualized infrastructure
-* Virtualization layers
+* **Mutualized** infrastructure
+* **Virtualization** layers
 * IaaS
 * Isolation mechanisms
 
 
+## Actors
+
+* Amazon Web Services
+* Google Compute Engine
+* OVH Public Cloud
+* Microsoft Azure
+* Rackspace
+* IBM Softlayer
+* …
+
+
 
 ## OVH
-### Innovation is freedom
+### *Innovation is freedom*
 
 
 ### History
@@ -56,7 +67,7 @@ part 1 : OVH
   * \>150,000 running instances (*VM*)
   * \>100 petabytes
 
-and counting...
+and counting…
 
 
 ### Based on…
@@ -82,29 +93,43 @@ and counting...
   * Randomized creation
 
 
-### Our targets
+### Jump server
 
-1. Create an instance from GUI access
-2. Create an instance from command line
-3. Discover...
+* Already set up :
+  * small docker containers
+  * OpenStack python CLI tools
+  * (A SSH server daemon)
 
+➜ That's our **jump server** !
 
-### Prerequisites
+```ssh root@XXXXXXXX -p PORT```
 
-* A web browser (common...)
-  * https://horizon.cloud.ovh.net/
-  * Username :
-  * Password :
-* A SSH client (ex: [www.putty.org](http://www.putty.org))
-* A SSH key pair : `ssh-keygen` or  `puttygen.exe`
+Where **PORT** is between *50001* and *50030*
 
 
 ### Key pair
 
-1. Compute/Access & security
-2. Import Key Pair
-3. Give it a name: *your name*
-4. Copy **public** part of your key
+* Already generated for jump server
+* **Public** part already registered on project
+* Will replace login/password on first login on VM
+
+
+### Other prerequisites
+
+* A web browser (common…)
+  * https://horizon.cloud.ovh.net/
+  * Username :
+  * Password :
+* A SSH client
+  * Windows - ex: [www.putty.org](http://www.putty.org))
+  * Linux - ex: ```openssh-client```
+
+
+### Our targets
+
+1. Create an instance from GUI access
+2. Create an instance from command line
+3. Discover…
 
 
 
@@ -116,7 +141,7 @@ and counting...
 1. Compute/Instances
 1. **Launch instance**
 1. Details
-  * Instance Name: *your choice*
+  * Instance Name: *YOUR_NAME-1*
   * Gabarit: *s1-2* (smallest)
   * NB: *1*
   * Source: *Image*
@@ -138,12 +163,15 @@ and counting...
 
 ### Connect to your instance
 
-* **Linux**: ```ssh ubuntu@<instance's IPv4>```
-* **Windows**: Putty
-  * Hostname : *&#60;instance's IPv4&#62;*
-  * Connection/ssh/Auth : *Your private key file*
-  * Open
-    * Username : *ubuntu*
+* From **jump server**: ```ssh ubuntu@<instance's IPv4>```
+```bash
+ubuntu@YOUR_NAME $ echo HELLO WORLD !
+```
+
+* Go root: ```sudo su```
+```bash
+root@YOUR_NAME #
+```
 
 
 
@@ -152,22 +180,55 @@ and counting...
 
 ### Jump server
 
-* Already set up :
-  * small docker containers
-  * openstack tools installed
-  * an SSH server daemon
-
-➜ That's your **jump server** !
-
-```ssh root@XXXXXXXX -p PORT```
-
-Where **port** is between *50001* and *50030*
+Stay connected to the **jump server**
 
 
 ### OpenRC file
 
-Project-specific environment file that contains the credentials that all OpenStack services use.
+*Project-specific environment file that contains the credentials that all OpenStack services use.*
 
 * Can be downloaded from Horizon
-  * Compute/Access & security/API access
+  * ➜ Compute/Access ➜ security/API access
 * **Already prepared on jump server !**
+* Source it:
+```bash
+. ~/openrc.sh
+```
+
+
+### List prerequisites
+
+* List available images
+```bash
+openstack image list
+```
+* List available networks
+```bash
+openstack network list
+```
+
+
+### Server create
+
+```bash
+openstack server create \
+        --flavor "s1-2" \
+        --image "Ubuntu 16.04" \
+        --key-name handsonkey \
+        --nic net-id=<<<NETWORK ID>>> \
+        --security-group default \
+        "<<<YOUR_NAME>>>-2"
+```
+
+
+### Connect to your instance
+
+* List instances:
+```bash
+openstack server list
+```
+
+* From **jump server**: ```ssh ubuntu@<instance's IPv4>```
+```bash
+ubuntu@YOUR_NAME $ echo HELLO WORLD !
+```

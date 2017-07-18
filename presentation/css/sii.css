@@ -24,12 +24,18 @@ body {
 
 .reveal pre {
   width: 100%;
-  font-size: 1rem;
+/*  font-size: 1rem;*/
 }
 
 
+.reveal pre code {
+  font-size: 2rem;
+  padding: 20px;
+  line-height: 1.1em;
+}
+
 .reveal ol {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .medium-table th, .medium-table td {
