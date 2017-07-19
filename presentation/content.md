@@ -63,8 +63,9 @@ part 1 : OVH
 
 ### Sizing
 
-* March  2017
-  * \>150,000 running instances (*VM*)
+* July  2017
+  * \>175,000 running instances (*VM*), on 6500 hosts
+  * 15 regions
   * \>100 petabytes
 
 and counting…
