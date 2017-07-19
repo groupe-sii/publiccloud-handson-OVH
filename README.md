@@ -15,7 +15,7 @@ This container is based on Ubuntu image with both OpenStack client tools and SSH
 If not already available in your `docker images`, build the image:
 
 ```
-$ docker build -t sii/openstack-tools openstack-tools/
+$ docker build -t openstack-tools openstack-tools/
 ```
 
 ## With SSH server
@@ -23,7 +23,7 @@ $ docker build -t sii/openstack-tools openstack-tools/
 Build the `openstack-tools` as described in previous section, then :
 
 ```
-$ docker build -t sii/openstack-tools-with-ssh openstack-tools-with-ssh/
+$ docker build -t openstack-tools-with-ssh openstack-tools-with-ssh/
 ```
 
 # Run
@@ -31,7 +31,7 @@ $ docker build -t sii/openstack-tools-with-ssh openstack-tools-with-ssh/
 ## Without SSH server
 
 ```
-$ docker run -ti --rm -v $(pwd)/openrc.sh:/root/openrc.sh sii/openstack-tools
+$ docker run -ti --rm -v $(pwd)/openrc.sh:/root/openrc.sh openstack-tools
 ```
 
 ## With SSH server
@@ -39,7 +39,7 @@ $ docker run -ti --rm -v $(pwd)/openrc.sh:/root/openrc.sh sii/openstack-tools
 With a random port:
 
 ```
-$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -P --name ostools sii/openstack-tools-with-ssh
+$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -P --name ostools openstack-tools-with-ssh
 $ docker port ostools 22
 0.0.0.0:49154
 ```
@@ -47,10 +47,10 @@ $ docker port ostools 22
 On a specific port:
 
 ```
-$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:49154:22 --name ostools sii/openstackclient-with-ssh
+$ docker run -v $(pwd)/openrc.sh:/root/openrc.sh -d -p 0.0.0.0:49154:22 --name ostools openstackclient-with-ssh
 ```
 
-Connect on the published SSH port with root and `handson@` password :
+Connect on the published SSH port with root and `ostools@` password :
 
 ```
 $ ssh root@DOCKERHOST_IP -p 49154
