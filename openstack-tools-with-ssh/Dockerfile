@@ -1,7 +1,13 @@
 # Docker container with OpenStack client + SSH server for remote access
 
-FROM sii/openstack-tools:latest
+FROM ubuntu:latest
 MAINTAINER lrivallain@sii.fr
+
+RUN apt-get update && apt-get upgrade -qqy && \
+    apt-get install -qqy build-essential wget python-dev python-pip vim && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN pip install --no-cache-dir --upgrade pip setuptools python-openstackclient
 
 RUN apt-get update && \
 apt-get install -y --no-install-recommends openssh-server && \
