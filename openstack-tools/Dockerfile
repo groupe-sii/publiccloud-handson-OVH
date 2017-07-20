@@ -1,7 +1,7 @@
 # Docker container with OpenStack client
 
 FROM ubuntu:latest
-MAINTAINER lrivallain@sii.fr
+LABEL maintainer "lrivallain@sii.fr"
 
 RUN apt-get update && apt-get upgrade -qqy && \
     apt-get install -qqy build-essential wget python-dev python-pip vim && \
