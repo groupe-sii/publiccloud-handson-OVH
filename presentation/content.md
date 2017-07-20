@@ -10,6 +10,7 @@ part 1 : OVH
 * **Virtualization** layers
 * IaaS
 * Isolation mechanisms
+* Usage billing
 
 
 ## Actors
@@ -18,6 +19,7 @@ part 1 : OVH
 * Google Compute Engine
 * OVH Public Cloud
 * Microsoft Azure
+* Digital Oceam
 * Rackspace
 * IBM Softlayer
 * …
@@ -101,9 +103,10 @@ and counting…
   * OpenStack python CLI tools
   * (A SSH server daemon)
 
-➜ That's our **jump server** !
+➜ That's your **jump server** !
 
-```ssh root@XXXXXXXX -p PORT```
+```bash
+ssh root@XXXXXXXX -p PORT```
 
 Where **PORT** is between *50001* and *50030*
 
@@ -117,11 +120,10 @@ Where **PORT** is between *50001* and *50030*
 
 ### Other prerequisites
 
-* A web browser (common…)
+* Web browser
   * https://horizon.cloud.ovh.net/
-  * Username :
-  * Password :
-* A SSH client
+  * Username & Password : *please refer on white-board*
+* SSH client
   * Windows - ex: [www.putty.org](http://www.putty.org))
   * Linux - ex: ```openssh-client```
 
@@ -143,36 +145,46 @@ Where **PORT** is between *50001* and *50030*
 1. **Launch instance**
 1. Details
   * Instance Name: *YOUR_NAME-1*
-  * Gabarit: *s1-2* (smallest)
-  * NB: *1*
-  * Source: *Image*
+  * Flavor: *s1-2* (smallest)
+  * Count: *1*
+  * Boot source: *Boot from image*
   * Image Name: *Ubuntu 16.04*
 
 
 ## VM from GUI (2)
 
 1. Access & security
-  * Key pair: *Your key pair*
+  * Key pair: *HandsOnKey*
   * Security group: *default*
 1. Networking
   * Selected network: *Ext-Net*
 1. Post-creation
   * Script source: *Direct Input*
-  * Script data: content of http://goo.gl/aazdad
+  * Script data: copy **content** of https://goo.gl/eYNSz6
 1. **Launch** !
 
 
 ### Connect to your instance
 
-* From **jump server**: ```ssh ubuntu@<instance's IPv4>```
+* From **jump server**: 
 ```bash
+ssh ubuntu@INSTANCE_IPV4
 ubuntu@YOUR_NAME $ echo HELLO WORLD !
 ```
 
-* Go root: ```sudo su```
+* Go root: 
 ```bash
+ubuntu@YOUR_NAME $ sudo su
 root@YOUR_NAME #
 ```
+
+
+### Test post-configuration
+
+* From Horizon portal
+  * Check instance's logs
+* From your Web browser
+  * http://<instance's IPv4>
 
 
 
@@ -205,7 +217,7 @@ openstack image list
 ```
 * List available networks
 ```bash
-openstack network list
+openstack network list [--fit-width]
 ```
 
 
@@ -215,9 +227,10 @@ openstack network list
 openstack server create \
         --flavor "s1-2" \
         --image "Ubuntu 16.04" \
-        --key-name handsonkey \
+        --key-name HandsOnKey \
         --nic net-id=<<<NETWORK ID>>> \
         --security-group default \
+        --wait \
         "<<<YOUR_NAME>>>-2"
 ```
 
@@ -239,7 +252,52 @@ openstack console url show <<<YOUR_NAME>>>-2
 ```bash
 openstack server show <<<YOUR_NAME>>>-2
 ```
-* When ready : ```ssh ubuntu@<instance's IPv4>```
+
+* When ready : 
 ```bash
+ssh ubuntu@INSTANCE_IPV4
 ubuntu@YOUR_NAME $ echo HELLO WORLD !
 ```
+
+
+
+## Dig it
+
+
+### openrc.sh
+
+* How does the openrc.sh file works ?
+```bash
+cat ~/openrc.sh
+```
+* What the effect of sourcing it ?
+```bash
+export | grep OS
+```
+
+**Question**: When you source it, are you actually connected to the cloud platform ?
+
+
+### Temporary tokens
+
+* Its possible to replace login/password
+* Generate a token with credentials
+```bash
+openstack token issue
+```
+
+**Question**: Who long can you use this token?
+
+
+### All is API
+
+* OpenStack management can be done through HTTP(s) API
+  * so OVH Public Cloud too:
+```
+curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
+  https://$HO_IMAGES_URI | jq
+```
+
+**Question**: Will you be able to list flavors, servers, networks ?
+
+**Tip**: `export | grep HO`
