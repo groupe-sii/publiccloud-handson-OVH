@@ -3,6 +3,17 @@ part 1 : OVH
 
 
 
+## Hands On ?
+### *« Learn quick by practice »*
+
+* Short introduction (~10m)
+* Practical work (~30m)
+* Fun ➜ Feel free to contribute to this point **☺**
+* BYOD *(Bring your own device)*
+* Lunch
+
+
+
 ## Public Cloud ?
 
 * *"Service over network, open for public use"*
