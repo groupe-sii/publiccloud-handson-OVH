@@ -26,14 +26,14 @@ part 1 : OVH
 
 
 
-## OVH
+## ![OVH Logo](./images/logo-ovh.png)<!-- .element: height="200px" -->
 ### *Innovation is freedom*
 
 
 ### History
 
 * Founded in 1999
-* By Octave Klaba : aka _@olesovhcom_
+* By Octave Klaba : aka [@olesovhcom 🐦](https://twitter.com/olesovhcom)
 * Headquarters: Roubaix
 * Rennes office since dec. 2014
   * R&D
@@ -66,7 +66,8 @@ part 1 : OVH
 ### Sizing
 
 * July  2017
-  * \>175,000 running instances (*VM*), on 6500 hosts
+  * \>175,000 running instances (*VM*)
+  * 6500 hosts
   * 15 regions
   * \>100 petabytes
 
@@ -110,6 +111,8 @@ ssh root@XXXXXXXX -p PORT```
 
 Where **PORT** is between *50001* and *50030*
 
+**Password:** `ostools@`
+
 
 ### Key pair
 
@@ -150,6 +153,8 @@ Where **PORT** is between *50001* and *50030*
   * Boot source: *Boot from image*
   * Image Name: *Ubuntu 16.04*
 
+***Do not validate yet !***
+
 
 ## VM from GUI (2)
 
@@ -184,7 +189,7 @@ root@YOUR_NAME #
 * From Horizon portal
   * Check instance's logs
 * From your Web browser
-  * http://<instance's IPv4>
+  * [http://<instance's IPv4>](http://<instance's IPv4>)
 
 
 
@@ -272,10 +277,21 @@ cat ~/openrc.sh
 ```
 * What the effect of sourcing it ?
 ```bash
-export | grep OS
+env | grep OS
 ```
 
-**Question**: When you source it, are you actually connected to the cloud platform ?
+**Question**: When you source it, are you actually connected to the OVH cloud platform ?
+
+
+### OpenStack client
+
+* Ubuntu package name : `python-openstackclient`
+* Explore capabilities
+```bash
+openstack help
+```
+
+**Question**: When you source it, are you actually connected to the OVH cloud platform ?
 
 
 ### Temporary tokens
@@ -286,12 +302,12 @@ export | grep OS
 openstack token issue
 ```
 
-**Question**: Who long can you use this token?
+**Question**: How long can you use this token for?
 
 
 ### All is API
 
-* OpenStack management can be done through HTTP(s) API
+* OpenStack management is done through HTTP(s) API
   * so OVH Public Cloud too:
 ```
 curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
@@ -300,4 +316,14 @@ curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
 
 **Question**: Will you be able to list flavors, servers, networks ?
 
-**Tip**: `export | grep HO`
+**Tip**: `env | grep HO`
+
+
+
+## Thanks
+
+* **OVH** public cloud team: [@ovh 🐦](https://twitter.com/ovh) / [ovh.com](https://www.ovh.com)
+  * Arnaud ‐ [@MangerDuChien 🐦](https://twitter.com/MangerDuChien) / [arnaudmorin.fr](http://www.arnaudmorin.fr/)
+  * Pierre ‐ [@pierre_libeau 🐦](https://twitter.com/pierre_libeau)
+* **SII** Ouest: [@sii_ouest 🐦](https://twitter.com/sii_ouest) / [rennes.groupe-sii.com/fr](http://rennes.groupe-sii.com/fr)
+  * Ludo ‐ [@lrivallain 🐦](https://twitter.com/lrivallain) / [lri.ovh](https://lri.ovh/)

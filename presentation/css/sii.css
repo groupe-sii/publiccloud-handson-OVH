@@ -1,11 +1,39 @@
+html {
+  /* fix dark background on full screen mode */
+  background-color: #fff;
+}
+
 body {
   background-image: url('../images/header-sii.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+.sii_logo {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  margin: 0.2rem;
+  width: 10rem;
+}
+
+.sii_footer {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #999999;
+}
+
 .reveal em {
-  color: #559BDB;
+  color: #8D3589;
+}
+
+.reveal a {
+  color: #D64B13;
 }
 
 .reveal td code {
@@ -31,7 +59,6 @@ body {
   padding: 20px;
   line-height: 1.1em;
 }
-
 
 .medium-table th, .medium-table td {
   font-size: 2rem;
