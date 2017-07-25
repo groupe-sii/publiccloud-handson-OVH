@@ -1,0 +1,5 @@
+/* soft colored version of SII CSS */
+.reveal em { color: #707070; }
+.reveal li li { color: #404040; }
+.reveal li li li { color: #606060 }
+.reveal li li li li { color: #808080; }
