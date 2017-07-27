@@ -44,7 +44,7 @@ part 1 : OVH
 ### History
 
 * Founded in 1999
-* By Octave Klaba : aka [@olesovhcom 🐦](https://twitter.com/olesovhcom)
+* By Octave Klaba : aka [@olesovhcom](https://twitter.com/olesovhcom) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->
 * Headquarters: Roubaix
 * Rennes office since dec. 2014
   * R&D
@@ -117,8 +117,7 @@ and counting…
 
 ➜ That's your **jump server** !
 
-```bash
-ssh root@XXXXXXXX -p PORT```
+`ssh root@XXXXXXXX -p PORT`
 
 Where **PORT** is between *50001* and *50030*
 
@@ -139,7 +138,7 @@ Where **PORT** is between *50001* and *50030*
   * Username & Password : *please refer on white-board*
 * SSH client
   * Windows - ex: [www.putty.org](http://www.putty.org))
-  * Linux - ex: ```openssh-client```
+  * Linux - ex: `openssh-client`
 
 
 ### Our targets
@@ -182,13 +181,13 @@ Where **PORT** is between *50001* and *50030*
 
 ### Connect to your instance
 
-* From **jump server**: 
+* From **jump server**:
 ```bash
-ssh ubuntu@INSTANCE_IPV4
+$ ssh ubuntu@INSTANCE_IPV4
 ubuntu@YOUR_NAME $ echo HELLO WORLD !
 ```
 
-* Go root: 
+* Go root:
 ```bash
 ubuntu@YOUR_NAME $ sudo su
 root@YOUR_NAME #
@@ -220,21 +219,15 @@ Stay connected to the **jump server**
   * ➜ Compute/Access ➜ security/API access
 * **Already prepared on jump server !**
 * Source it:
-```bash
-. ~/openrc.sh
-```
+`. ~/openrc.sh`
 
 
 ### List prerequisites
 
 * List available images
-```bash
-openstack image list
-```
+`openstack image list`
 * List available networks
-```bash
-openstack network list [--fit-width]
-```
+`openstack network list [--fit-width]``
 
 
 ### Server create
@@ -269,7 +262,7 @@ openstack console url show <<<YOUR_NAME>>>-2
 openstack server show <<<YOUR_NAME>>>-2
 ```
 
-* When ready : 
+* When ready :
 ```bash
 ssh ubuntu@INSTANCE_IPV4
 ubuntu@YOUR_NAME $ echo HELLO WORLD !
@@ -333,8 +326,8 @@ curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
 
 ## Thanks
 
-* **OVH** public cloud team: [@ovh 🐦](https://twitter.com/ovh) / [ovh.com](https://www.ovh.com)
-  * Arnaud ‐ [@MangerDuChien 🐦](https://twitter.com/MangerDuChien) / [arnaudmorin.fr](http://www.arnaudmorin.fr/)
-  * Pierre ‐ [@pierre_libeau 🐦](https://twitter.com/pierre_libeau)
-* **SII** Ouest: [@sii_ouest 🐦](https://twitter.com/sii_ouest) / [rennes.groupe-sii.com/fr](http://rennes.groupe-sii.com/fr)
-  * Ludo ‐ [@lrivallain 🐦](https://twitter.com/lrivallain) / [lri.ovh](https://lri.ovh/)
+* **OVH** public cloud team: [@ovh](https://twitter.com/ovh) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->/ [ovh.com](https://www.ovh.com)
+  * Arnaud ‐ [@MangerDuChien](https://twitter.com/MangerDuChien) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->/ [arnaudmorin.fr](http://www.arnaudmorin.fr/)
+  * Pierre ‐ [@pierre_libeau](https://twitter.com/pierre_libeau) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->
+* **SII** Ouest: [@sii_ouest](https://twitter.com/sii_ouest) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->/ [rennes.groupe-sii.com/fr](http://rennes.groupe-sii.com/fr)
+  * Ludo ‐ [@lrivallain](https://twitter.com/lrivallain) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" --> / [lri.ovh](https://lri.ovh/)
