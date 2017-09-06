@@ -135,7 +135,7 @@ Where **PORT** is between *50001* and *50030*
 
 * Web browser
   * https://horizon.cloud.ovh.net/
-  * Username & Password : *please refer on white-board*
+  * Username & Password : `cat credentials.txt` on jump server
 * SSH client
   * Windows - ex: [www.putty.org](http://www.putty.org))
   * Linux - ex: `openssh-client`
