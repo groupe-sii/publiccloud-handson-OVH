@@ -113,7 +113,7 @@ and counting…
 * Already set up :
   * small docker containers
   * OpenStack python CLI tools
-  * (A SSH server daemon)
+  * SSH server daemon
 
 ➜ That's your **jump server** !
 
@@ -227,7 +227,7 @@ Stay connected to the **jump server**
 * List available images
 `openstack image list`
 * List available networks
-`openstack network list [--fit-width]``
+`openstack network list [--fit-width]`
 
 
 ### Server create
