@@ -13,6 +13,11 @@ part 1 : OVH
 * Lunch
 
 
+## Slides
+
+* On our GitHub: https://goo.gl/uPZhoL
+
+
 
 ## Public Cloud ?
 
@@ -324,6 +329,9 @@ curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
 
 
 
+## Questions ?
+
+
 ## Thanks
 
 * **OVH** public cloud team: [@ovh](https://twitter.com/ovh) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->/ [ovh.com](https://www.ovh.com)
@@ -331,3 +339,4 @@ curl -s -H "X-Auth-Token: <<<YOUR TOKEN ID>>>" \
   * Pierre ‐ [@pierre_libeau](https://twitter.com/pierre_libeau) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->
 * **SII** Ouest: [@sii_ouest](https://twitter.com/sii_ouest) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" -->/ [rennes.groupe-sii.com/fr](http://rennes.groupe-sii.com/fr)
   * Ludo ‐ [@lrivallain](https://twitter.com/lrivallain) ![twitter](images/logo-twitter.png)  <!-- .element: class="twitter-logo" --> / [lri.ovh](https://lri.ovh/)
+
