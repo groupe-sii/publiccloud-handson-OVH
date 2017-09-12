@@ -22,7 +22,7 @@ part 1 : OVH
 ## Public Cloud ?
 
 * *"Service over network, open for public use"*
-* Infrasructure **mutualisée**
+* Infrastructure **mutualisée**
 * Couche de **Virtualisation**
 * IaaS
 * Méchanismes d'isolation
@@ -105,11 +105,11 @@ and counting…
 
 ### Qu'est ce qui a été préparé ?
 
-* Compte client OVH
+* **Compte client** OVH
   * Utilisé notamment pour le paiement
-* Création d'un projet
+* Création d'un **projet**
   * Enveloppe virtuelle pour les VM (quotas)
-* Login OpenStack
+* **Login** OpenStack
   * Création '*random*'
 
 
@@ -122,7 +122,7 @@ and counting…
 
 ➜ Ce sont vos **serveurs de rebond** !
 
-`ssh root@XXXXXXXX -p PORT`
+`ssh root@149.202.187.150 -p PORT`
 
 Où **PORT** est compris entre *50001* et *50030*
 
@@ -131,7 +131,7 @@ Où **PORT** est compris entre *50001* et *50030*
 
 ### Couple de clés
 
-* Déjà générés sur les rebonds
+* Déjà généré sur les rebonds
 * Partie **publique** déjà enregistrée sur le projet
 * Remplacera le couple login/mot de passe sur les VM
 
